@@ -33,9 +33,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Test.cs" />
+    <Compile Include="ModelTests\NameFileTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="TestResource\name_read_test.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ModelTests\" />
+    <Folder Include="TestResource\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GlobalXNameSort\GlobalXNameSort.csproj">
+      <Project>{DB80693C-EB03-40DB-BFD4-B76A2BD77838}</Project>
+      <Name>GlobalXNameSort</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

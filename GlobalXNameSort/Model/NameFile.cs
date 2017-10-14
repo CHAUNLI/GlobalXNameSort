@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using System.IO;
 namespace GlobalXNameSort.Model
 {
     public class NameFile
@@ -8,7 +8,7 @@ namespace GlobalXNameSort.Model
         //FilePath
         public string filePath;
         //This is the name list in the target file.
-        public List<string> content;
+        public List<string> content = new List<string>();
         
         public NameFile()
         {
@@ -28,8 +28,12 @@ namespace GlobalXNameSort.Model
             //TODO think about if no file path, should be able to create file or not? 
         }
 
+        public void ReadFile(){
+            ReadFileFrom( this.filePath);
+            
+        }
         // Method
-        public void ReadFiileFrom(string filePath)
+        public void ReadFileFrom(string filePath)
         {
             try
             {
@@ -42,24 +46,40 @@ namespace GlobalXNameSort.Model
                     Console.WriteLine("\t" + line);
                     newContent.Add(line);
                 }
+                this.content = newContent;
             }
-            catch
+            catch (FileNotFoundException e)
             {
-                Console.WriteLine("Check your path");
+                
+                Console.WriteLine("File not found: {0}", e.ToString());
+                throw;  
             }
-
+            catch (IOException e)
+            {
+                if (e.Source != null)
+                    Console.WriteLine("IOException source: {0}", e.Source);
+                throw;
+            }
         }
         public void WriteFileTo(string filePath)
         {
             //should write content to file of path 
-            //TODO 
             try
             {
+                
                 System.IO.File.WriteAllLines(filePath, this.content);
             }
-            catch
+            catch (ArgumentException e)
             {
-                Console.WriteLine("Check your path");
+
+                Console.WriteLine("Argument Invalid: {0}", e.ToString());
+                throw;
+            }
+            catch (IOException e)
+            {
+                if (e.Source != null)
+                    Console.WriteLine("IOException source: {0}", e.Source);
+                throw;
             }
         }
     
