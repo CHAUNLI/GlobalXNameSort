@@ -7,13 +7,13 @@ namespace GlobalXNameSort.Model
     {
         public int id { get; set; }
         //should first name list be from 1 to 3 length
-        public List<string> firstName = new List<string>();
+        public string[] firstName;
         //should last name be not empty
         public string lastName;
 
-
-        public FullName(List<string> newFirstName, string newLastName)
+        public FullName(string[] newFirstName, string newLastName)
         {
+
             this.firstName = newFirstName;
             this.lastName = newLastName;
         }
@@ -23,12 +23,11 @@ namespace GlobalXNameSort.Model
             string[] fullNameArray = nameStr.Split(new char[0]);
             if (fullNameArray.Length > 1)
             {
-                //List <string> list = new List<string>(nameArray[nameArray.Length - 1]);
+                //Last name is the last element of the full name
                 this.lastName = fullNameArray[fullNameArray.Length - 1];
 
-                string[] firstNameArray = fullNameArray.Take(fullNameArray.Length - 1).ToArray();
-
-                this.firstName = new List<string>(firstNameArray);
+                //Remove last name, the left name would be the first name
+                this.firstName = fullNameArray.Take(fullNameArray.Length - 1).ToArray();
             }
             else
             {
@@ -37,39 +36,20 @@ namespace GlobalXNameSort.Model
             }
         }
 
-
+        public bool isValid(){
+            if (this.firstName!=null && this.lastName!=null){
+                return true;
+            }
+            return false;
+        }
 
         public int CompareTo(FullName other)
         {
             int result = this.lastName.CompareTo(other.lastName);
             if (result == 0)
             {
-                string firstName0 = this.firstName.First();
-                result = firstName0.CompareTo(other.firstName.First());
-                if (result == 0)
-                {
-                    if (this.firstName.Count== 1 && other.firstName.Count == 1)
-                    {
-                        result = 0;
-                    }
-                    else if ((this.firstName.Count == 1) && (other.firstName.Count > 1))
-                    {
-                        result = -1;
-                    }
-                    else if ((this.firstName.Count > 1) && (other.firstName.Count == 1))
-                    {
-                        result = 1;
-                    }
-                    else if((this.firstName.Count > 1) && (other.firstName.Count > 1))
-                    {
-                        string firstName1 = this.firstName[1];
-                        result = firstName1.CompareTo(other.firstName[1]);
-                        if (result == 0)
-                        {
+                result = this.firstName.ToString().CompareTo(other.firstName.ToString());
 
-                        }
-                    }
-                }
             }
             return result;
         }
