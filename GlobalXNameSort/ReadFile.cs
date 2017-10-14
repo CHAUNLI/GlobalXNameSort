@@ -28,7 +28,7 @@ namespace GlobalXNameSort
             }
             catch
             {
-                Console.WriteLine("there is somethong wrong when read");
+                Console.WriteLine("Check your file");
             }
         }
     }

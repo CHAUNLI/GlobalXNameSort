@@ -8,6 +8,9 @@ namespace GlobalXNameSortTest
         [Test()]
         public void TestCase()
         {
+            Assert.AreEqual(250m, destination.Balance);
+            Assert.AreEqual(100m, source.Balance);
         }
+
     }
 }
