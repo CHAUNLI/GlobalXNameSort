@@ -7,22 +7,18 @@ using System.IO;
 namespace GlobalXNameSortTest.ModelTests
 {
     [TestFixture()]
-    public class FullNameTest
+    public class NameFileTest
     {
         
         [Test]
-        public void VerifyItCanCompareFullNamesCorrectelly()
+        public void VerifyItCanReadFileCorrectly()
         {
            
-    
+            FullName fullName = new FullName("Janet Parsons");
+            FullName anotherFullName = new FullName("Vaughn Lewis");
 
-            NameFile newFile = new NameFile("TestResource/name_read_test.txt");
-            newFile.ReadFile();
-            List<string> actualResult = new List<string>();
-            actualResult = newFile.content;
-
-            List<string> expectResult = new List<string>(new string[]
-            { "Janet Parsons", "Vaughn Lewis", "Adonis Julius Archer","Shelby Nathan Yoder","Marin Alvarez" });
+            int expectResult = 1;
+            int actualResult = fullName.CompareTo(anotherFullName);
 
             Assert.AreEqual(expectResult, actualResult);
         }

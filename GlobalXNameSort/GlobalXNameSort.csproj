@@ -37,6 +37,7 @@
     <Compile Include="ReadFile.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Model\NameFile.cs" />
+    <Compile Include="Model\FullName.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Model\" />

@@ -32,6 +32,8 @@ namespace GlobalXNameSort.Model
             ReadFileFrom( this.filePath);
             
         }
+
+
         // Method
         public void ReadFileFrom(string filePath)
         {
@@ -61,6 +63,7 @@ namespace GlobalXNameSort.Model
                 throw;
             }
         }
+
         public void WriteFileTo(string filePath)
         {
             //should write content to file of path 
