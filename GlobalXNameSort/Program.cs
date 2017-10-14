@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 namespace GlobalXNameSort
 {
@@ -6,7 +7,12 @@ namespace GlobalXNameSort
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine(Constants.greeting);
+            Console.WriteLine(Constants.instructionInfo);
+            //string pathOfDirectory = Path.Combine(Environment.CurrentDirectory);
+            string filePath = Console.ReadLine();
+            Console.WriteLine(filePath);
+            ReadFile readNameList = new ReadFile(filePath);
         }
     }
 }

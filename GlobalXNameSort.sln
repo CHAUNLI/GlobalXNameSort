@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlobalXNameSort", "GlobalXNameSort\GlobalXNameSort.csproj", "{DB80693C-EB03-40DB-BFD4-B76A2BD77838}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlobalXNameSortTest", "GlobalXNameSortTest\GlobalXNameSortTest.csproj", "{18A75CD2-3901-4519-8EF7-362BCEADE4D0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -13,5 +15,9 @@ Global
 		{DB80693C-EB03-40DB-BFD4-B76A2BD77838}.Debug|x86.Build.0 = Debug|x86
 		{DB80693C-EB03-40DB-BFD4-B76A2BD77838}.Release|x86.ActiveCfg = Release|x86
 		{DB80693C-EB03-40DB-BFD4-B76A2BD77838}.Release|x86.Build.0 = Release|x86
+		{18A75CD2-3901-4519-8EF7-362BCEADE4D0}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{18A75CD2-3901-4519-8EF7-362BCEADE4D0}.Debug|x86.Build.0 = Debug|Any CPU
+		{18A75CD2-3901-4519-8EF7-362BCEADE4D0}.Release|x86.ActiveCfg = Release|Any CPU
+		{18A75CD2-3901-4519-8EF7-362BCEADE4D0}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
