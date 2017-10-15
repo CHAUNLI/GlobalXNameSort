@@ -9,12 +9,7 @@ namespace GlobalXNameSort.Model
         public string filePath;
         //This is the name list in the target file.
         public List<string> content = new List<string>();
-        
-        public NameFile()
-        {
-            filePath = @"";
-            //TODO think about if no file path, should be able to create file or not? 
-        }
+
         public NameFile(string newFilePath)
         {
             this.filePath = newFilePath;
@@ -26,6 +21,14 @@ namespace GlobalXNameSort.Model
             this.filePath = newFilePath;
             this.content = newContent;
             //TODO think about if no file path, should be able to create file or not? 
+        }
+        public NameFile(List<FullName> newContent)
+        {
+            this.content = new List<string>();
+            foreach (FullName name in newContent)
+            {
+                this.content.Add(name.ToString());
+            }
         }
 
         public void ReadFile(){
@@ -44,8 +47,6 @@ namespace GlobalXNameSort.Model
                 string[] lines = System.IO.File.ReadAllLines(filePath);
                 foreach (string line in lines)
                 {
-                    //TODO we need a name class init from one line string
-                    Console.WriteLine("\t" + line);
                     newContent.Add(line);
                 }
                 this.content = newContent;

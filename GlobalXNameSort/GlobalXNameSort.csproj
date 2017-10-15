@@ -40,10 +40,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Model\" />
-    <Folder Include="Resource\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resource\name_sort.txt">
+    <None Include="unsorted-names-list.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

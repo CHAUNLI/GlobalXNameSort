@@ -20,7 +20,7 @@ namespace GlobalXNameSort.Model
             nameStr = nameStr.TrimEnd();
 
             string[] fullNameArray = nameStr.Split(new char[0]);
-            if ((fullNameArray.Length > 1)&&(nameStr.Trim()!= ""))
+            if ((fullNameArray.Length < 5)&&(fullNameArray.Length > 1) && (nameStr.Trim() != ""))
             {
                 //Last name is the last element of the full name
                 this.lastName = fullNameArray[fullNameArray.Length - 1];
@@ -30,7 +30,7 @@ namespace GlobalXNameSort.Model
             }
             else
             {
-                Console.WriteLine("[Warning]: Invalid Full Name " + nameStr);
+                Console.WriteLine("[Warning]: Invalid Full Name " + nameStr +", will be removed from sorted list.");
                 //if this is not a valid string, if it only has one word, then set it as last name. 
                 if ((nameStr != null)&&(nameStr.Trim() != ""))
                 {

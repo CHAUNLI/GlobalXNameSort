@@ -11,6 +11,30 @@ namespace GlobalXNameSortTest.ModelTests
     {
         //FullName Init tests
         [Test]
+        public void Given_FullNameString_When_ItHasLongFirstName_Then_InvalidFullName()
+        {
+
+            FullName fullName = new FullName("Janet Hunter Uriah Mathew Mathew");
+            FullName fullNameStartFromSpace = new FullName("   Janet");
+            FullName fullNameEndWithSpace = new FullName("Janet    ");
+
+            Assert.AreEqual(false, fullName.isValid());
+            Assert.AreEqual(false, fullNameStartFromSpace.isValid());
+            Assert.AreEqual(false, fullNameEndWithSpace.isValid());
+        }
+        [Test]
+        public void Given_FullNameString_When_ItHasValidName_Then_validFullName()
+        {
+
+            FullName fullName3 = new FullName("Janet Hunter Uriah");
+            FullName fullName2 = new FullName(" Mathew Mathew");
+            FullName fullName4 = new FullName("Janet Janet Hunter Uriah");
+
+            Assert.AreEqual(true, fullName3.isValid());
+            Assert.AreEqual(true, fullName2.isValid());
+            Assert.AreEqual(true, fullName4.isValid());
+        }
+        [Test]
         public void Given_FullNameString_When_ItHasNoLastNameOrFirstName_Then_InvalidFullName()
         {
 
