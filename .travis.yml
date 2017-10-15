@@ -1,2 +1,8 @@
 language: csharp
 solution: GlobalXNameSort.sln
+before_install:
+  - sudo apt-get install nunit-console
+before_script:
+  - nuget restore GlobalXNameSort.sln
+after_script:
+  - nunit-console GlobalXNameSortTest/bin/Debug/Tests.dll
