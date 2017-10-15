@@ -29,17 +29,16 @@ namespace GlobalXNameSort
                 }
             }
             Console.WriteLine("END ***************");
-
             Console.WriteLine("\n\n");
+
+            //Sort list and write to file
             List<FullName> sortedList = unsortedList;
             sortedList.Sort();
-
             NameFile sortedFile = new NameFile(sortedList);
-
             sortedFile.WriteFileTo(Constants.outputFilePath);
 
-            Console.WriteLine("Sorted name list write to file " + Constants.outputFilePath + ":");
             //Display the sorted files
+            Console.WriteLine("Sorted name list write to file " + Constants.outputFilePath + ":");
             foreach(string nameStr in sortedFile.content)
             {
                 Console.WriteLine("\t"+nameStr);

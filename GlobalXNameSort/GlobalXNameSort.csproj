@@ -6,7 +6,7 @@
     <ProjectGuid>{DB80693C-EB03-40DB-BFD4-B76A2BD77838}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>GlobalXNameSort</RootNamespace>
-    <AssemblyName>GlobalXNameSort</AssemblyName>
+    <AssemblyName>name-sorter</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
