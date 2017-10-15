@@ -76,7 +76,7 @@ namespace GlobalXNameSort.Model
             catch (ArgumentException e)
             {
 
-                Console.WriteLine("Argument Invalid: {0}", e.ToString());
+                Console.WriteLine("Argument Invalid: {0}", e);
                 throw;
             }
             catch (IOException e)

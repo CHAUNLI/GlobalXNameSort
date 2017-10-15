@@ -1,7 +1,7 @@
 ﻿using System;
 namespace GlobalXNameSort
 {
-    public class Constants
+    static public class Constants
     {
 
         public const string greeting = "****** Welcome to GlobalX name sort programe *******";

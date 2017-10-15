@@ -6,7 +6,7 @@ using System.IO;
 
 namespace GlobalXNameSortTest.ModelTests
 {
-    [TestFixture()]
+    [TestFixture]
     public class NameFileTest
     {
         

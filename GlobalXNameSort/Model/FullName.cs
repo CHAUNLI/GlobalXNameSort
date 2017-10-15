@@ -15,12 +15,11 @@ namespace GlobalXNameSort.Model
 
         public FullName(string nameStr)
         {
-            //remove space from start and end
+            //remove space from start and end, as well as more than one space within the words
             nameStr = nameStr.TrimStart();
             nameStr = nameStr.TrimEnd();
-
-            string[] fullNameArray = nameStr.Split(new char[0]);
-            if ((fullNameArray.Length < 5)&&(fullNameArray.Length > 1) && (nameStr.Trim() != ""))
+            string[] fullNameArray = nameStr.Split(new string[] { " "}, StringSplitOptions.RemoveEmptyEntries);
+            if ((fullNameArray.Length < 5) && (fullNameArray.Length > 1) && (nameStr.Trim() != ""))
             {
                 //Last name is the last element of the full name
                 this.lastName = fullNameArray[fullNameArray.Length - 1];
@@ -30,16 +29,15 @@ namespace GlobalXNameSort.Model
             }
             else
             {
-                Console.WriteLine("[Warning]: Invalid Full Name " + nameStr +", will be removed from sorted list.");
+                Console.WriteLine("[Warning]: Invalid Full Name " + nameStr + ", will be removed from sorted list.");
                 //if this is not a valid string, if it only has one word, then set it as last name. 
-                if ((nameStr != null)&&(nameStr.Trim() != ""))
+                if ((nameStr != null) && (nameStr.Trim() != ""))
                 {
                     this.lastName = nameStr;
                 }
 
             }
         }
-
         public bool isValid(){
             if (this.firstName!=null && this.lastName!=null){
                 return true;
@@ -70,7 +68,9 @@ namespace GlobalXNameSort.Model
             if (this.isValid()){
                 
                 return string.Join(" ", this.firstName) + " " + this.lastName;
-            }else if(this.lastName!= null){
+            }
+
+            if(this.lastName!= null){
                 return this.lastName;
             }
             return Constants.nullFullNamePlaceHolder;

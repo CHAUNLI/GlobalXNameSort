@@ -6,15 +6,31 @@ using System.IO;
 using GlobalXNameSort;
 namespace GlobalXNameSortTest.ModelTests
 {
-    [TestFixture()]
+    [TestFixture]
     public class FullNameTest
     {
         //FullName Init tests
         [Test]
+        public void Given_FullNameString_When_ItHasMoreThanOneSpace_Then_validFullName()
+        {
+
+            FullName fullName1 = new FullName("Janet  Hunter  Uriah");
+            FullName fullName2 = new FullName("Janet  test");
+            FullName fullName3 = new FullName("Janet    ");
+
+            Console.WriteLine(fullName1.ToString() + " " + fullName1.firstName.Length);
+            Assert.AreEqual(true, fullName1.isValid());
+            Assert.AreEqual(2, fullName1.firstName.Length);
+            Assert.AreEqual(true, fullName2.isValid());
+            Assert.AreEqual(1, fullName2.firstName.Length);
+
+            Assert.AreEqual(false, fullName3.isValid());
+        }
+        [Test]
         public void Given_FullNameString_When_ItHasLongFirstName_Then_InvalidFullName()
         {
 
-            FullName fullName = new FullName("Janet Hunter Uriah Mathew Mathew");
+            FullName fullName = new FullName("Janet Hunter   Uriah Mathew Mathew");
             FullName fullNameStartFromSpace = new FullName("   Janet");
             FullName fullNameEndWithSpace = new FullName("Janet    ");
 
@@ -26,9 +42,9 @@ namespace GlobalXNameSortTest.ModelTests
         public void Given_FullNameString_When_ItHasValidName_Then_validFullName()
         {
 
-            FullName fullName3 = new FullName("Janet Hunter Uriah");
-            FullName fullName2 = new FullName(" Mathew Mathew");
-            FullName fullName4 = new FullName("Janet Janet Hunter Uriah");
+            FullName fullName3 = new FullName("Janet       Hunter        Uriah");
+            FullName fullName2 = new FullName(" Mathew   Mathew");
+            FullName fullName4 = new FullName("Janet Janet    Hunter Uriah");
 
             Assert.AreEqual(true, fullName3.isValid());
             Assert.AreEqual(true, fullName2.isValid());

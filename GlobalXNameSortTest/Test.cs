@@ -4,10 +4,10 @@ using GlobalXNameSort.Model;
 using System.Collections.Generic;
 namespace GlobalXNameSortTest
 {
-    [TestFixture()]
+    [TestFixture]
     public class Test
     {
-        [Test()]
+        [Test]
         public void Given_FullNameList_When_NoException_Then_GetSortedList()
         {
             List<FullName> input = new List<FullName>();
@@ -34,7 +34,7 @@ namespace GlobalXNameSortTest
                     Console.WriteLine(name.ToString());
                 }
             }
-            string[] expectResult = new string[] {
+            string[] expectResult = {
                 "Marin Alvarez",
                 "Marin Alvarez",
                 "Adonis Julius Archer",
