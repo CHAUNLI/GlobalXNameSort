@@ -19,6 +19,12 @@ cd ../GlobalXNameSort/bin/Release/
 mono name-sorter.exe ./unsorted-names-list.txt
 ```
 
+Document 
+------------
+
+https://trello.com/b/nxDEdy3c/globalx-name-sorting
+
+
 License
 -------
 
