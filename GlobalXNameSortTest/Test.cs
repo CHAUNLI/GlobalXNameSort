@@ -11,6 +11,7 @@ namespace GlobalXNameSortTest
         public void Given_FullNameList_When_NoException_Then_GetSortedList()
         {
             List<FullName> input = new List<FullName>();
+
             input.Add(new FullName("Janet Parsons"));
             input.Add(new FullName("Vaughn Lewis"));
             input.Add(new FullName("Adonis Julius Archer"));
@@ -26,11 +27,31 @@ namespace GlobalXNameSortTest
 
             input.Sort();
 
-            foreach (FullName name in input){
-                Console.WriteLine(string.Join(" ", name.firstName) +" "+ name.lastName);
+            foreach (FullName name in input)
+            {
+                if (name.isValid()) 
+                { 
+                    Console.WriteLine(name.ToString());
+                }
             }
+            List<FullName> expectResult = new List<FullName>();
+            expectResult.Add(new FullName("Marin Alvarez")); 
+            expectResult.Add(new FullName("Marin Alvarez")); 
+            expectResult.Add(new FullName("Beau Tristan Bentley")); 
+            expectResult.Add(new FullName("Hunter Uriah Mathew Clarke")); 
+            expectResult.Add(new FullName("Leo Gardner")); 
+            expectResult.Add(new FullName("Vaughn Lewis")); 
+            expectResult.Add(new FullName("London Lindsey")); 
+            expectResult.Add(new FullName("Mikayla Lopez")); 
+            expectResult.Add(new FullName("Janet Parsons")); 
+            expectResult.Add(new FullName("Frankie Conner Ritter")); 
+            expectResult.Add(new FullName("Shelby Nathan Yoder")); 
+            expectResult.Add(new FullName("Adonis Julius Archer")); 
 
-            Assert.AreEqual(null, input);
+            Assert.AreEqual(expectResult[0].ToString(), input[0].ToString());
+            Assert.AreEqual(expectResult[4].ToString(), input[4].ToString());
+            Assert.AreEqual(expectResult[6].ToString(), input[6].ToString());
+            Assert.AreEqual(expectResult[7].ToString(), input[7].ToString());
             
         }
 

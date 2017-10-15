@@ -1,27 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+
+
 namespace GlobalXNameSort.Model
 {
     public class FullName : IComparable<FullName>
     {
         public int id { get; set; }
-        //should first name list be from 1 to 3 length
+        //Should first name list be from 1 to 3 length
         public string[] firstName;
-        //should last name be not empty
+        //Should has one lastName
         public string lastName;
-
-        public FullName(string[] newFirstName, string newLastName)
-        {
-
-            this.firstName = newFirstName;
-            this.lastName = newLastName;
-        }
 
         public FullName(string nameStr)
         {
+            //remove space from start and end
+            nameStr = nameStr.TrimStart();
+            nameStr = nameStr.TrimEnd();
+
             string[] fullNameArray = nameStr.Split(new char[0]);
-            if (fullNameArray.Length > 1)
+            if ((fullNameArray.Length > 1)&&(nameStr.Trim()!= ""))
             {
                 //Last name is the last element of the full name
                 this.lastName = fullNameArray[fullNameArray.Length - 1];
@@ -31,8 +30,13 @@ namespace GlobalXNameSort.Model
             }
             else
             {
-                Console.WriteLine("Invalid Full Name " + nameStr);
-                //TODO: should catch this exception when the name is incompleted 
+                Console.WriteLine("[Warning]: Invalid Full Name " + nameStr);
+                //if this is not a valid string, if it only has one word, then set it as last name. 
+                if ((nameStr != null)&&(nameStr.Trim() != ""))
+                {
+                    this.lastName = nameStr;
+                }
+
             }
         }
 
@@ -45,14 +49,31 @@ namespace GlobalXNameSort.Model
 
         public int CompareTo(FullName other)
         {
-            int result = this.lastName.CompareTo(other.lastName);
-            if (result == 0)
-            {
-                result = this.firstName.ToString().CompareTo(other.firstName.ToString());
+            //Preset the result as is greater than other, if it's not a valid string, always add it to last  
+            int result =1;
+            if (this.isValid()&&other.isValid()) 
+            { 
+                result = this.lastName.CompareTo(other.lastName);
+                if (result == 0)
+                {
+                    result = this.firstName.ToString().CompareTo(other.firstName.ToString());
 
+                }
+            }else if(!this.isValid() && !other.isValid()){
+                result = 0;
             }
+
             return result;
         }
-
+        override public string ToString()
+        {
+            if (this.isValid()){
+                
+                return string.Join(" ", this.firstName) + " " + this.lastName;
+            }else if(this.lastName!= null){
+                return this.lastName;
+            }
+            return Constants.nullFullNamePlaceHolder;
+        }
     }
 }

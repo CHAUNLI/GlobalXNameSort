@@ -7,15 +7,13 @@ using System.IO;
 namespace GlobalXNameSortTest.ModelTests
 {
     [TestFixture()]
-    public class FullNameTest
+    public class NameFileTest
     {
         
         [Test]
         public void VerifyItCanCompareFullNamesCorrectelly()
         {
            
-    
-
             NameFile newFile = new NameFile("TestResource/name_read_test.txt");
             newFile.ReadFile();
             List<string> actualResult = new List<string>();
