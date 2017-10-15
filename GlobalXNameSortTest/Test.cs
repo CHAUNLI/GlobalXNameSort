@@ -29,29 +29,29 @@ namespace GlobalXNameSortTest
 
             foreach (FullName name in input)
             {
-                if (name.isValid()) 
-                { 
+                if (name.isValid())
+                {
                     Console.WriteLine(name.ToString());
                 }
             }
-            List<FullName> expectResult = new List<FullName>();
-            expectResult.Add(new FullName("Marin Alvarez")); 
-            expectResult.Add(new FullName("Marin Alvarez")); 
-            expectResult.Add(new FullName("Beau Tristan Bentley")); 
-            expectResult.Add(new FullName("Hunter Uriah Mathew Clarke")); 
-            expectResult.Add(new FullName("Leo Gardner")); 
-            expectResult.Add(new FullName("Vaughn Lewis")); 
-            expectResult.Add(new FullName("London Lindsey")); 
-            expectResult.Add(new FullName("Mikayla Lopez")); 
-            expectResult.Add(new FullName("Janet Parsons")); 
-            expectResult.Add(new FullName("Frankie Conner Ritter")); 
-            expectResult.Add(new FullName("Shelby Nathan Yoder")); 
-            expectResult.Add(new FullName("Adonis Julius Archer")); 
-
-            Assert.AreEqual(expectResult[0].ToString(), input[0].ToString());
-            Assert.AreEqual(expectResult[4].ToString(), input[4].ToString());
-            Assert.AreEqual(expectResult[6].ToString(), input[6].ToString());
-            Assert.AreEqual(expectResult[7].ToString(), input[7].ToString());
+            string[] expectResult = new string[] {
+                "Marin Alvarez",
+                "Marin Alvarez",
+                "Adonis Julius Archer",
+                "Beau Tristan Bentley",
+                "Hunter Uriah Mathew Clarke",
+                "Leo Gardner",
+                "Vaughn Lewis",
+                "London Lindsey",
+                "Mikayla Lopez",
+                "Janet Parsons",
+                "Frankie Conner Ritter",
+                "Shelby Nathan Yoder"
+            };
+            Assert.AreEqual(expectResult[0], input[0].ToString());
+            Assert.AreEqual(expectResult[4], input[4].ToString());
+            Assert.AreEqual(expectResult[6], input[6].ToString());
+            Assert.AreEqual(expectResult[7], input[7].ToString());
             
         }
 
